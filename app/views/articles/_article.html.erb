@@ -1,0 +1,42 @@
+<h1> Add a new article </h2>
+
+<%= form_for @article do |form| %>
+   <% if @article.errors.any? %>
+     <h2> errors: </h2>
+     <ul>
+     <% @article.errors.full_messages.each do |msg| %>
+      <li><%= msg %></l1>
+      <% end%>
+
+   </ul>
+   <%end %>
+    <p>
+      <%= form.label :title %> <br>
+      <%= form.text_field :title %>
+    </p>
+    <p>
+      <%= form.label :content %><br>
+      <%= form.text_field :content %>  
+    </p>
+
+    <p>
+     <%= form.label :author %><br>
+     <%= form.text_field :author %>
+   </p>
+
+   <p> 
+   <%= form.label :published_at %><br>
+   <%= form.date_field :published_at, class: 'form-control' %>
+   </p>
+
+    <p>
+    <%= form.label :category %><br>
+     <select name="Category" value="category">
+     <option value="nature">nature </option>
+     <option value="technology">technology </option><br>
+   </p>
+
+   <p>
+   <%= form.submit " Add a new article" %>
+   </p>
+<% end %>
